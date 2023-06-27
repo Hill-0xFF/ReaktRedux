@@ -32,7 +32,7 @@ const Counter = () => {
   // const count = useSelector((state: Pick<Slice, Name>) => state.counter.count);
   const count = useSelector((state: any) => state.counter.count);
   const dispatch = useDispatch();
-  const [amount, setAmount] = useState<number | string>(0);
+  const [amount, setAmount] = useState<number | string >(0);
 
   const handleInput = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(0);
@@ -54,7 +54,7 @@ const Counter = () => {
       <div className="counter__input">
         <label htmlFor="amount__input">Amount</label>
         <input
-          type="number"
+          type="text"
           name="amount"
           id="amount__input"
           onChange={(evt) => handleInput(evt)}
