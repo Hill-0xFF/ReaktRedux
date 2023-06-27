@@ -36,8 +36,10 @@ const Counter = () => {
 
   const handleInput = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(0);
-    console.log(typeof evt.currentTarget.value);
-    if (evt.currentTarget.value) setAmount(Number(evt.currentTarget.value));
+    const value = evt.currentTarget.value;
+    console.log(typeof value);
+    const newvalue = Number(value) || 0;
+    setAmount(newvalue)
     return;
   };
 
