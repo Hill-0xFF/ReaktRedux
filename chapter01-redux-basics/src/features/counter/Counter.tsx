@@ -37,11 +37,16 @@ const Counter = () => {
   const handleInput = (evt: React.ChangeEvent<HTMLInputElement>) => {
     setAmount(0);
     const value = evt.currentTarget.value;
-    console.log(typeof value);
+    // console.log(typeof value);
     const newvalue = Number(value) || 0;
     setAmount(newvalue)
     return;
   };
+
+  const resetAll = () => {
+    setAmount(0);
+    dispatch(reset());
+  }
 
   return (
     <section className="counter__section">
@@ -78,6 +83,7 @@ const Counter = () => {
         >
           Decrement By Amount
         </button>
+        <button className="button" onClick={resetAll}>Reset All</button>
       </div>
     </section>
   );
