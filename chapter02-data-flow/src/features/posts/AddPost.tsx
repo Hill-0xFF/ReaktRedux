@@ -26,6 +26,7 @@ const AddPost = () => {
 
     setNewPostBody('');
     setNewPostTitle('');
+    setUserId('');
     history.push('/')
   };
 

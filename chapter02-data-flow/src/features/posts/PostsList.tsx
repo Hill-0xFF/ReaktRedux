@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectAllPost } from "./postsSlice";
+import PostUser from "./PostUser";
 
 const PostsList = () => {
   // const posts = useSelector((state: PostsState) => state.posts)
@@ -9,6 +10,9 @@ const PostsList = () => {
     <article key={post.id}>
       <h3>{post.title}</h3>
       <p>{post.content.length > 35 ? `${post.content.substring(0,30)}...` : post.content}</p>
+      <p className="postCredit">
+        <PostUser userId={post.userId}/>
+      </p>
     </article>
   ))
   return (

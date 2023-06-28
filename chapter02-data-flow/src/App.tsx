@@ -31,6 +31,7 @@ function App() {
 
     setNewPostBody('');
     setNewPostTitle('');
+    setUserId('');
     history.push('/');
   };
 
