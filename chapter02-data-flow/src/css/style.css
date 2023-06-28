@@ -1,4 +1,16 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech&family=Share+Tech+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Mynerve&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Mynerve&family=PT+Sans+Narrow:wght@400;700&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Mynerve&family=PT+Sans+Narrow:wght@400;700&family=Shadows+Into+Light&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Mynerve&family=Orbitron:wght@400;500;600;700;800;900&family=PT+Sans+Narrow:wght@400;700&family=Shadows+Into+Light&family=Zeyada&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap');
+
+
+*/
 
 * {
   margin: 0;
@@ -48,6 +60,31 @@ header {
   justify-content: center;
   align-items: center;
   border: solid 4px red;
+  margin-bottom: 1rem;
+}
+
+.newPost__form {
+  display: flex;
+  flex-flow: column wrap;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: flex-start;
+  border: solid 3px blueviolet;
+  margin-bottom: 1rem;
+}
+
+form.newPost__form > input[type='text'] {
+  font-size: 1.75rem;
+}
+
+form.newPost__form > textarea {
+  width: 100%;
+}
+
+form.newPost__form > button {
+  margin-top: 1rem;
+  border-radius: 1.5rem;
+  align-self: center;
 }
 
 section {
