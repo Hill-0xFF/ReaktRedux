@@ -18,11 +18,7 @@ function App() {
     if (newPostTitle && newPostBody) {
       const id = posts.length ? Number(posts[posts.length - 1].id) + 1 : 1;
       dispatch(
-        addNewPost({
-          id: id.toString(),
-          title: newPostTitle,
-          content: newPostBody,
-        })
+        addNewPost(id.toString(), newPostTitle, newPostBody)
       );
     }
 

@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type TypePosts = {
-  id: number,
+  id: string,
   title: string,
   content: string,
 }
@@ -20,9 +20,21 @@ const postsSlice = createSlice({
   name: "posts",
   initialState,
   reducers: {
-    addNewPost: (state, action) => {
+    addNewPost: {
+    reducer: (state, action: PayloadAction<TypePosts>) => {
+      // fixed using 
+      // https://redux-toolkit.js.org/api/createSlice#customizing-generated-action-creators
       state.push(action.payload)
-    },
+    }, prepare(id, title, content) {
+      return {
+        payload: {
+          id,
+          title,
+          content,
+        }
+      }
+    }
+  }
   }
 });
 
