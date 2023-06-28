@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
+import { useHistory } from 'react-router-dom';
 import { selectAllPost, addNewPost } from './postsSlice';
 import { selectAllUsers } from '../users/usersSlice';
 
 const AddPost = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const [newPostBody, setNewPostBody] = useState<string>('');
   const [newPostTitle, setNewPostTitle] = useState<string>('');
@@ -25,6 +26,7 @@ const AddPost = () => {
 
     setNewPostBody('');
     setNewPostTitle('');
+    history.push('/')
   };
 
   const userOptions = users.map(user => (
