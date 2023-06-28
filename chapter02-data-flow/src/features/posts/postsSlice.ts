@@ -6,7 +6,7 @@ type TypePosts = {
   content: string,
 }
 
-export type PostsState = {
+type PostsState = {
   posts: TypePosts[],
 }
 
@@ -25,10 +25,11 @@ const postsSlice = createSlice({
       // fixed using 
       // https://redux-toolkit.js.org/api/createSlice#customizing-generated-action-creators
       state.push(action.payload)
-    }, prepare(id, title, content) {
+    }, prepare(id, title, content, userId) {
       return {
         payload: {
           id,
+          userId,
           title,
           content,
         }
