@@ -13,6 +13,7 @@ const PostsList = () => {
       <p className="postCredit">
         <PostUser userId={post.userId}/>
       </p>
+      <p>{post.datetime}</p>
     </article>
   ))
   return (

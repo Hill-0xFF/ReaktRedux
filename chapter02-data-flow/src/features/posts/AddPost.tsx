@@ -20,7 +20,7 @@ const AddPost = () => {
     if (newPostTitle && newPostBody) {
       const id = posts.length ? Number(posts[posts.length - 1].id) + 1 : 1;
       dispatch(
-        addNewPost(id.toString(), newPostTitle, newPostBody, userId)
+        addNewPost(id.toString(), newPostTitle, newPostBody, userId, new Date().toISOString())
       );
     }
 
