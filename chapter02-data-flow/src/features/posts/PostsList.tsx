@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectAllPost } from "./postsSlice";
 import PostUser from "./PostUser";
+import TimePosted from "./Timestamp";
 
 const PostsList = () => {
   // const posts = useSelector((state: PostsState) => state.posts)
@@ -14,6 +15,7 @@ const PostsList = () => {
         <PostUser userId={post.userId}/>
       </p>
       <p>{post.datetime}</p>
+      <TimePosted timestamp={post.datetime}/>
     </article>
   ))
   return (
