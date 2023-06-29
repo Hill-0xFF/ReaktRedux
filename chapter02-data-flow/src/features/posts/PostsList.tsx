@@ -6,8 +6,9 @@ import TimePosted from "./Timestamp";
 const PostsList = () => {
   // const posts = useSelector((state: PostsState) => state.posts)
   const posts = useSelector(selectAllPost)
+  const postByTime = posts.slice().sort((a, b) => b.datetime.localeCompare(a.datetime))
   
-  const renderedPosts = posts.map(post => (
+  const renderedPosts = postByTime.map(post => (
     <article key={post.id}>
       <h3>{post.title}</h3>
       <p>{post.content.length > 35 ? `${post.content.substring(0,30)}...` : post.content}</p>
