@@ -47,7 +47,7 @@ const AddPost = () => {
         name="title"
         id="postTitle"
         value={newPostTitle}
-        onChange={(evt) => setNewPostTitle(evt.currentTarget.value)}
+        onChange={(evt) => setNewPostTitle(evt.currentTarget.value.trimStart())}
         required
       />
 
@@ -64,7 +64,7 @@ const AddPost = () => {
         cols={30}
         rows={10}
         value={newPostBody}
-        onChange={(evt) => setNewPostBody(evt.currentTarget.value)}
+        onChange={(evt) => setNewPostBody(evt.currentTarget.value.trimStart())}
         required
       ></textarea>
 
