@@ -171,6 +171,15 @@ section > article {
   border: solid 3px red;
 }
 
+.reactionDiv {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  min-height: 48px;
+  justify-content:space-around;
+  align-items: center;
+}
+
 .counter__section {
   display: flex;
   flex-flow: column wrap;
