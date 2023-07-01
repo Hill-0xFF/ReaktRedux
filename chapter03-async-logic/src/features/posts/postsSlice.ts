@@ -104,7 +104,7 @@ const postsSlice = createSlice({
   },
 });
 
-export const selectAllPost = (state: { posts: TypePosts; }) => state.posts;
+export const selectAllPost = (state: { posts: PostsState; }) => state.posts;
 
 export const { addNewPost, incrementReaction } = postsSlice.actions;
 

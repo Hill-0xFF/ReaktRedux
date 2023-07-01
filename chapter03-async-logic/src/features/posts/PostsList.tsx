@@ -1,12 +1,12 @@
 import { useSelector } from "react-redux";
-import { selectAllPost, TypePosts } from "./postsSlice";
+import { selectAllPost } from "./postsSlice";
 import PostUser from "./PostUser";
 import TimePosted from "./Timestamp";
 import Reactions from "./Reactions";
 
 const PostsList = () => {
   // const posts = useSelector((state: PostsState) => state.posts)
-  const posts: TypePosts = useSelector(selectAllPost)
+  const posts = useSelector(selectAllPost)
   const postByTime = posts.posts.slice().sort((a, b) => b.datetime.localeCompare(a.datetime))
   
   const renderedPosts = postByTime.map(post => (
