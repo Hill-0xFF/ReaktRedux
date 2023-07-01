@@ -7,12 +7,15 @@ export type TypePosts = {
   content: string;
   userId: string;
   datetime: string;
+  // reactions: {
+  //   thumbsUp: number,
+  //   wow: number,
+  //   heart: number,
+  //   rocket: number,
+  //   coffee: number
+  // }
   reactions: {
-    thumbsUp: number,
-    wow: number,
-    heart: number,
-    rocket: number,
-    coffee: number
+    [key: string]: number;
   }
 };
 
@@ -65,6 +68,7 @@ const postsSlice = createSlice({
     //incrementReaction: (state, action: PayloadAction<TypePosts, 'id'>) => {
     incrementReaction: (state, action) => {
       const { postId, reaction } = action.payload;
+      console.log('Reaction type: ', typeof reaction)
       const existPost = state.posts.find(post => post === postId)
       if(existPost) {
         existPost.reactions[reaction] += 1
@@ -77,7 +81,7 @@ const postsSlice = createSlice({
   },
 });
 
-export const selectAllPost = (state: PostsState) => state.posts;
+export const selectAllPost = (state: PostsState) => state.posts.posts;
 
 export const { addNewPost, incrementReaction } = postsSlice.actions;
 
