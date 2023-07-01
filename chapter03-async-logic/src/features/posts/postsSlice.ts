@@ -1,6 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { sub } from 'date-fns';
 
+enum ReactionType {
+  ThumbsUp = 'thumbsUp',
+  Wow = 'wow',
+  Heart = 'heart',
+  Rocket = 'rocket',
+  Coffee = 'coffee',
+}
+
 export type TypePosts = {
   id: string;
   title: string;
@@ -15,8 +23,8 @@ export type TypePosts = {
   //   coffee: number
   // }
   reactions: {
-    [key: string]: number;
-  }
+    [key in ReactionType]: number;
+  };
 };
 
 type PostsState = {
@@ -24,10 +32,18 @@ type PostsState = {
 };
 
 type InitialStatePosts = {
-  posts: TypePosts[],
-  status: string,
-  error: boolean | null,
-}
+  posts: TypePosts[];
+  status: string;
+  error: boolean | null;
+};
+
+type IncrementPayloadActionType = {
+  postId: string;
+  //   reaction: {
+  //   [key in ReactionType]: number;
+  // }
+  reaction: string;
+};
 
 const initialState: InitialStatePosts = {
   posts: [],
@@ -59,29 +75,36 @@ const postsSlice = createSlice({
               heart: 0,
               rocket: 0,
               coffee: 0,
-            }
+            },
           },
         };
       },
     },
 
     //incrementReaction: (state, action: PayloadAction<TypePosts, 'id'>) => {
-    incrementReaction: (state, action) => {
-      const { postId, reaction } = action.payload;
-      console.log('Reaction type: ', typeof reaction)
-      const existPost = state.posts.find(post => post === postId)
-      if(existPost) {
-        existPost.reactions[reaction] += 1
-        
-        // const react = Object.entries(existPost.reactions).find(reaction)
-        // console.log(react);
-        
+    // incrementReaction: (state, action: PayloadAction<Pick<TypePosts, 'id': 'postId' | 'reactions'>>) => {
+    // incrementReaction: (state, action: PayloadAction<Record<TypePosts, string>>) => {
+    incrementReaction: (
+      state,
+      action: PayloadAction<IncrementPayloadActionType>
+    ) => {
+      // const { postId, reaction } = action.payload;
+      const postId = action.payload.postId;
+      const reaction = action.payload.reaction;
+      const existPost = state.posts.find((post) => post.id === postId);
+      console.log(existPost);
+
+      if (existPost) {
+        // if (Object.keys(existPost.reactions).includes(reaction)) {
+        //   existPost.reactions[reaction]++
+        // }
+        existPost.reactions[reaction as ReactionType] += 1;
       }
-    }
+    },
   },
 });
 
-export const selectAllPost = (state: PostsState) => state.posts.posts;
+export const selectAllPost = (state: { posts: TypePosts; }) => state.posts;
 
 export const { addNewPost, incrementReaction } = postsSlice.actions;
 
