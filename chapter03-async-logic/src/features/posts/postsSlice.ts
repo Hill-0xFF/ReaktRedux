@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { sub } from 'date-fns';
 
-enum ReactionType {
+export enum ReactionType {
   ThumbsUp = 'thumbsUp',
   Wow = 'wow',
   Heart = 'heart',

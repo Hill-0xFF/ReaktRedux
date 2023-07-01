@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { incrementReaction, TypePosts } from "./postsSlice"
+import { incrementReaction, ReactionType, TypePosts } from "./postsSlice"
 
 
 
@@ -23,7 +23,7 @@ const Reactions = ({ post }: ReactionsProps) => {
         postId: post.id, reaction: name
       }))}
       >
-        {emoji} {post.reactions[name]}
+        {emoji} {post.reactions[name as ReactionType]}
       </button>
       )
   })
