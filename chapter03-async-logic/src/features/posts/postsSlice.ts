@@ -78,7 +78,7 @@ const postsSlice = createSlice({
       },
     },
 
-    //incrementReaction: (state, action: PayloadAction<TypePosts, 'id'>) => {
+    // incrementReaction: (state, action: PayloadAction<TypePosts, 'id'>) => {
     // incrementReaction: (state, action: PayloadAction<Pick<TypePosts, 'id': 'postId' | 'reactions'>>) => {
     // incrementReaction: (state, action: PayloadAction<Record<TypePosts, string>>) => {
     incrementReaction: (
