@@ -39,9 +39,6 @@ type InitialStatePosts = {
 
 type IncrementPayloadActionType = {
   postId: string;
-  //   reaction: {
-  //   [key in ReactionType]: number;
-  // }
   reaction: string;
 };
 
