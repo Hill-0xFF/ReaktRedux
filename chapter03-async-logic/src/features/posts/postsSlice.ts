@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 // import { sub } from 'date-fns';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 export enum ReactionType {
   ThumbsUp = 'thumbsUp',
@@ -77,7 +77,6 @@ const postsSlice = createSlice({
         };
       },
     },
-
     // incrementReaction: (state, action: PayloadAction<TypePosts, 'id'>) => {
     // incrementReaction: (state, action: PayloadAction<Pick<TypePosts, 'id': 'postId' | 'reactions'>>) => {
     // incrementReaction: (state, action: PayloadAction<Record<TypePosts, string>>) => {
