@@ -5,7 +5,6 @@ import TimePosted from "./Timestamp";
 import Reactions from "./Reactions";
 
 const PostsList = () => {
-  // const posts = useSelector((state: PostsState) => state.posts)
   const posts = useSelector(selectAllPost)
   const postByTime = posts.posts.slice().sort((a, b) => b.datetime.localeCompare(a.datetime))
   
