@@ -88,7 +88,7 @@ const postsSlice = createSlice({
       const postId = action.payload.postId;
       const reaction = action.payload.reaction;
       const existPost = state.posts.find((post) => post.id === postId);
-      console.log(existPost);
+      // console.log(existPost);
 
       if (existPost) {
         // if (Object.keys(existPost.reactions).includes(reaction)) {
@@ -100,7 +100,7 @@ const postsSlice = createSlice({
   },
 });
 
-export const selectAllPost = (state: { posts: PostsState; }) => state.posts;
+export const selectAllPost = (state: { posts: PostsState }) => state.posts;
 
 export const { addNewPost, incrementReaction } = postsSlice.actions;
 
