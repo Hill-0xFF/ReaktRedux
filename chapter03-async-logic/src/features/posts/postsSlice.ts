@@ -1,5 +1,6 @@
 // import { sub } from 'date-fns';
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 export enum ReactionType {
   ThumbsUp = 'thumbsUp',
@@ -42,11 +43,22 @@ type IncrementPayloadActionType = {
   reaction: string;
 };
 
+const POSTS_URL = 'https://jsonplaceholder.typicode/posts';
+
 const initialState: InitialStatePosts = {
   posts: [],
   status: 'idle', // idle | loading | succeeded | failed
   error: null,
 };
+
+export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
+  try {
+    const resp = await axios.get(POSTS_URL);
+    return [...resp.data];
+  } catch (err: any) {
+    return err.message;
+  }
+});
 
 const postsSlice = createSlice({
   name: 'posts',
